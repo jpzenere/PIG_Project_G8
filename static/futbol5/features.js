@@ -17,7 +17,7 @@ function fechaActual() {
     if (min == "0" || min == "1" || min == "2" || min == "3" || min == "4" || min == "5" || min == "6" || min == "7" || min == "8" || min == "9"){
         var mins = "0" + min
         } else { 
-        mins = min        
+        mins = min         
         }  
 
     return dia+" "+fecha+" de "+mes+" de "+ano+" - "+horas+":"+mins
