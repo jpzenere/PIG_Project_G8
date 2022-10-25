@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'futbol5/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'Favicon.ico' %}" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/f56b239c28.js" crossorigin="anonymous"></script>
+    <title>{% block titulo%}Hoy se Juega?{% endblock %}</title>
+</head>
+<body>
+    <div class="body">
+        <header>
+            <div class="logContainer">
+                <p id="fechaHora"></p>
+                <a href="">{% block log%}<i class="fa-solid fa-right-to-bracket"></i> Log In{% endblock %}</a>
+            </div>
+            <div class="heroContainer">
+                <div class="logoContainer">
+                    {% block logo %}<a href="/"><img src="{% static 'futbol5/img/Logo.png'%}" alt="Logo"></a>
+                    {% endblock %}
+                </div>
+                <div class="hero">
+                    <h1>Hoy se Juega?</h1>
+                    <h2>Campeonato de fútbol 5</h2>
+                </div>
+            </div>
+        </header>
+        <main>
+            <aside id="aside">
+                <div id="burger">
+                    <i onclick="{document.getElementById('nav').style.display='flex';
+                    document.getElementById('x').style.display='block';
+                    document.getElementById('bars').style.display='none'}" class="fa-solid fa-bars" id="bars"></i>
+                    <i onclick="{document.getElementById('nav').style.display='none';
+                    document.getElementById('x').style.display='none';
+                    document.getElementById('bars').style.display='block'}" class="fa-solid fa-x" id="x"></i>
+                </div>
+                <nav id="nav">
+                    
+                    {% block inscripcionesButton%}<a href="/inscripciones/" class="navButton"><li>Inscripciones</li></a>{% endblock %}
+                    {% block equiposButton %}<a href="/equipos/" class="navButton"><li>Equipos</li></a>{% endblock %}
+                    {% block fixtureButton %}<a href="/fixture/" class="navButton"><li>Fixture</li></a>{% endblock %}
+                    {% block canchasButton %}<a href="/canchas/" class="navButton"><li>Canchas</li></a>{% endblock %}
+                </nav>
+            </aside>
+            <section>
+                {% block section%}{% endblock%}
+            </section>
+        </main>
+        <footer>
+            <p>Desarrollado por: 
+                <a href="mailto:ariasdiego027@gmail.com">Diego Arias</a><span>,&nbsp</soan>
+                <a href="mailto:Aprosgonzalo@gmail.com">Gonzalo Monicat</a><span>,&nbsp</soan>
+                <a href="mailto:federico.j.noble@gmail.com">Federico Noble</a><span>,&nbsp</soan>
+                <a href="mailto:jpzenere@gmail.com">Juan Panozzo Zénere</a><span>&nbspy&nbsp</span>
+                <a href="mailto:solimovil04@gmail.com">Ricardo Marcelo Solimano</a>                
+            </p>
+            <p>Django 2022 - Codo a Codo</p>
+        </footer>
+        <script src="{% static 'futbol5/features.js' %}"></script>
+    </div>
+    
+</body>
+</html>
