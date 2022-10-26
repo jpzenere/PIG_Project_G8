@@ -129,7 +129,7 @@ header {
 
 aside{
     height: 100%;
-    background-color: rgb(130, 205, 71);
+    background-color: rgba(130, 205, 71,0.5);
     justify-content: center;
 }
 
@@ -173,6 +173,7 @@ li{
     width: 90%;
     border-radius: 5px;
     border-width: 3px;
+    background-color: rgb(130, 205, 71);
     border-color: rgb(84, 180, 53);
     border-style: solid;
     display: flex;
