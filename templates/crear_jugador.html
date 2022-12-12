@@ -15,18 +15,13 @@
             <a href="/inscripciones/crearJugador/">Crear Jugador</a>
         </div>
     </div>
-    {% block lista %}
-    {% for jugador in jugadores %}
-        <tr>
-            <td>{{jugador.id}}</td>
-            <td>{{jugador.foto_perfil}}</td>
-            <td>{{jugador.nombre}}</td>
-            <td>{{jugador.apellido}}</td>
-            <td>{{jugador.email}}</td>
-            <td>{{jugador.dni}}</td>
-            <td>{{jugador.edad}}</td>
-            <td>{{jugador.equipo.nombre}}</td>
-        </tr>
-    {% endfor %}
-    {% endblock lista %} 
+    <div class="formJugador">
+        <form method="POST"> {% csrf_token %}
+            {{formJugador.as_p}}
+            <input type="submit" value="Guardar">
+        </form>
+
+    </div>
+
+    {% block lista %}{% endblock lista %} 
 {% endblock section%}
