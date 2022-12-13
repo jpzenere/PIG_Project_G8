@@ -15,18 +15,24 @@
             <a href="/inscripciones/crearJugador/">Crear Jugador</a>
         </div>
     </div>
+    <div class="form">
+        <div class= "contenedorLista">
+            <div class="etiquetas"><p>Nombre y apellido</p></div>
+            <div class="etiquetas">e-mail</div>
+            <div class="etiquetas">DNI</div>
+            <div class="etiquetas">Edad</div>
+            <div class="etiquetas">Equipo</div>
+        </div>
     {% block lista %}
     {% for jugador in jugadores %}
-        <tr>
-            <td>{{jugador.id}}</td>
-            <td>{{jugador.foto_perfil}}</td>
-            <td>{{jugador.nombre}}</td>
-            <td>{{jugador.apellido}}</td>
-            <td>{{jugador.email}}</td>
-            <td>{{jugador.dni}}</td>
-            <td>{{jugador.edad}}</td>
-            <td>{{jugador.equipo.nombre}}</td>
-        </tr>
+        <div class= "contenedorLista">            
+            <div class="dato">{{jugador.nombre}}&nbsp{{jugador.apellido}}</div>
+            <div class="dato">{{jugador.email}}</div>
+            <div class="dato">{{jugador.dni}}</div>
+            <div class="dato">{{jugador.edad}}</div>
+            <div class="dato">{{jugador.equipo.nombre}}</div>
+        </div>
     {% endfor %}
-    {% endblock lista %} 
+    {% endblock lista %}
+    </div>
 {% endblock section%}

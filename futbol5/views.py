@@ -12,7 +12,8 @@ def inscripciones(request):
     return render(request, "inscripciones.html", {'jugadores': jugadores})
 
 def equipos(request):
-    return render(request, "equipos.html")
+    equipos = Equipo.objects.all().order_by('id')
+    return render(request, "equipos.html", {'equipos': equipos})
 
 def fixture(request):
     return render(request, "fixture.html")

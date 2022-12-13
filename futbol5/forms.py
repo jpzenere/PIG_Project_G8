@@ -17,7 +17,6 @@ class JugadorForm(forms.ModelForm):
             'email',
             'dni',
             'edad',
-            'foto_perfil',
             'equipo'
         ]
 

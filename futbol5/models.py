@@ -14,8 +14,7 @@ class Jugador(models.Model):
     email = models.EmailField(max_length=50, verbose_name="Email")
     dni = models.IntegerField(verbose_name="DNI")
     edad = models.IntegerField(verbose_name="Edad")
-    foto_perfil = models.ImageField(upload_to='media/imagenes_perfil/', default="null")
-    equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE)
+    equipo = models.ForeignKey(Equipo, on_delete=models.CASCADE, verbose_name="Equipo")
 
 
 class Cancha(models.Model):

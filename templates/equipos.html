@@ -5,5 +5,19 @@
 <a href="/equipos/" class="navButton"><li id="ButtonSelected">Equipos</li></a>
 {% endblock %}
 {% block  section%}
-    <p>Acá se pondría la lista de equipos y el form para crearlos</p>   
+<link rel="stylesheet" href="{% static 'futbol5/styleSection.css' %}">
+    <div class="form">
+        <div class= "contenedorEquipo">
+            <div class="etiquetas"><p>Nombre del equipo</p></div>
+            <div class="etiquetas">Integrantes</div>
+        </div>
+    {% block lista %}
+    {% for equipo in equipos %}
+        <div class= "contenedorEquipo">            
+            <div class="dato">{{equipo.nombre}}</div>
+            <div class="dato">{{equipo.integrantes}}</div>
+        </div>
+    {% endfor %}
+    {% endblock lista %}
+    </div> 
 {% endblock  %}
