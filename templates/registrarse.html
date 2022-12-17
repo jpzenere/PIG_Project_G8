@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}Hoy se Juega - Registrarse{% endblock titulo %}
+
+{% block  section%}
+
+    <form method="POST"> {% csrf_token %}
+      {% for campo in form %}
+      <div class="form-group">
+          <label for="">{{campo.label}}</label>
+          <input 
+              type="{{campo.field.widget.input_type}}" 
+              name="{{campo.name}}" 
+              id="{{campo.name}}"
+              class="form-control"
+              placeholder="Ingrese {{campo.name}}"
+              value="{{ campo.value | default:'' }}"
+          >
+      </div>
+      <div>{{campo.errors}}</div>
+  {% endfor %}
+  <div class="row mt-3">
+      <div class="col-12">
+          <input type="submit" value="Registrarse" class="btn btn-success">
+          <a href="{% url 'login' %}" style="color:#FFFFFF"> si ya tenes una cuenta, logueate.</a>
+      </div>
+  </div>
+    </form>        
+{% endblock section%}

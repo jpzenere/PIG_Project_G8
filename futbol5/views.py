@@ -1,7 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from futbol5.models import *
-from .forms import EquipoForm, JugadorForm, CanchaForm
+from .forms import EquipoForm, JugadorForm, CanchaForm, RegistrarUsuarioForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm
+
 
 
 def index(request):
@@ -38,6 +42,32 @@ def crear_jugador(request):
     return render(request, "crear_jugador.html", context)
 
 
+# def futbol5_login(request):
+#     if request.method == 'POST':
+#         # AuthenticationForm_can_also_be_used__
+#         username = request.POST['username']
+#         password = request.POST['password']
+#         user = authenticate(request, username=username, password=password)
+#         if user is not None:
+#             form = login(request, user)
+#             messages.success(request, f' Bienvenido/a {username} !!')
+#             return redirect('index')
+#         else:
+#             messages.error(request, f'Cuenta o password incorrecto, realice el login correctamente')
+    
+#     form = AuthenticationForm()
+#     return render(request, 'login.html', {'form': form, 'title': 'Log in'})
 
 
-# Create your views here.
+
+def futbol5_registrarse(request):
+     if request.method == 'POST':
+         form = RegistrarUsuarioForm(request.POST)
+         if form.is_valid():
+             form.save()
+             messages.success(
+                 request, f'Tu cuenta fue creada con éxito! Ya te podes loguear en el sistema.')
+             return redirect('login')
+     else:
+         form = RegistrarUsuarioForm()
+     return render(request, 'registrarse.html', {'form': form, 'title': 'registrese aquí'})
