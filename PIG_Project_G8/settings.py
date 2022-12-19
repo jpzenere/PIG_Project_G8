@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'PIG_Project_G8.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'PIG_Project2',
+        'NAME': 'PIG_Project',
         'USER': 'postgres',
-        'PASSWORD': '123456',
+        'PASSWORD': 'Pebble350',
         'HOST': 'localhost',
         'PORT': '5432'
     }

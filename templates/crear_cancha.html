@@ -16,7 +16,14 @@
 
         </div>
     </div>
+    <div class="formCancha">
+        <form method="POST"> {% csrf_token %}
+            {{formCancha.as_p}}
+            <input type="submit" value="Guardar">
+        </form>
+
+    </div>
 {% else %}
     <a href="{% url 'login' %} " style="color:#FFFFFF"><i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</a>
-{% endif %}
+{% endif %} 
 {% endblock  %}

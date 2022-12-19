@@ -41,6 +41,14 @@ def crear_jugador(request):
     context = {'formJugador': formJugador}
     return render(request, "crear_jugador.html", context)
 
+def crear_cancha(request):
+    formCancha = CanchaForm(request.POST or None)
+    if formCancha.is_valid():
+        formCancha.save()
+        formCancha = CanchaForm()
+    context = {'formCancha': formCancha}
+    return render(request, "crear_cancha.html", context)
+
 
 # def futbol5_login(request):
 #     if request.method == 'POST':
