@@ -6,6 +6,10 @@
 {% endblock %}
 {% block  section%}
 <link rel="stylesheet" href="{% static 'futbol5/styleSection.css' %}">
+    
+{% if user.is_authenticated %}
+
+
     <div class="inscrip">
         <div class="inscButton">
             <a href="/inscripciones/crearEquipo">Crear equipo</a>
@@ -22,4 +26,8 @@
         </form>
 
     </div>
+{% else %}
+    <a href="{% url 'login' %} " style="color:#FFFFFF"><i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</a>
+{% endif %}
+
 {% endblock section%}
